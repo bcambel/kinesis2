@@ -1,4 +1,4 @@
-# KinesiS3
+# KinesiS2
 
 Listen to Amazon Kinesis streams to write to DB and/or publish to Redis.
 
@@ -60,22 +60,26 @@ A built in HTTP server exists which publishes stats. Navigate to /stats to fetch
 --aws-secret          SECRET
 --aws-endpoint        ENDPOINT
 --aws-kinesis-stream  STREAM
---s3-bucket           BUCKET
 --batch-size          SIZE (int)
 
+
+## Events table
 
 ```
 CREATE TABLE events (id CHARACTER VARYING(1024) NOT NULL,
 ts TIMESTAMP(6) WITH TIME ZONE,
 received_at TIMESTAMP(6) WITH TIME ZONE,
-title TEXT, url TEXT, path TEXT, referrer TEXT, utm_source TEXT, utm_campaign TEXT, utm_medium TEXT, utm_content TEXT, utm_term TEXT, args JSON, cookies JSON, form JSON, user_data JSON, user_id TEXT, ip CHARACTER VARYING(50), orig_data JSON, user_agent TEXT, PRIMARY KEY (id));
+title TEXT, url TEXT, path TEXT, referrer TEXT, utm_source TEXT,
+utm_campaign TEXT, utm_medium TEXT, utm_content TEXT,
+utm_term TEXT, args JSON, cookies JSON, form JSON, user_data JSON, user_id TEXT,
+ip CHARACTER VARYING(50), orig_data JSON, user_agent TEXT, PRIMARY KEY (id));
 
 ```
 
 
 ## License
 
-Copyright © 2015 Bahadir Cambel
+Copyright © 2017 Bahadir Cambel
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
