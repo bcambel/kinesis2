@@ -1,0 +1,32 @@
+(defproject kinesis2 "0.1.0-SNAPSHOT"
+  :description "Amazon Kinesis streams to DB "
+  :url "http://github.com/bcambel/kinesis2"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [
+          [org.clojure/clojure "1.8.0"]
+          [org.clojure/core.async "0.2.374"]
+          [org.clojure/tools.cli "0.3.1"]
+          [com.stuartsierra/component "0.3.1"]
+          [compojure "1.5.0"]
+          [ring "1.4.0"]
+          [com.taoensso/timbre "4.3.1"]
+          [cheshire "5.6.0"]
+          [amazonica "0.3.57"]
+          [metrics-clojure "2.4.0"]
+          [byte-streams "0.2.0"]
+
+          [org.clojure/java.jdbc "0.4.2"]
+          [honeysql "0.6.2"]
+          [org.postgresql/postgresql "9.4-1205-jdbc41"]
+          [com.taoensso/carmine "2.12.1"]
+          ; [com.taoensso/nippy "2.7.0"]
+          ]
+
+  :main ^:skip-aot kinesis2.core
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}
+             :dev {:plugins [[lein-midje "3.1.3"]]
+                    :source-paths ["dev"]
+                   :dependencies [[midje "1.6.0" :exclusions [org.clojure/clojure]]]}
+  })
